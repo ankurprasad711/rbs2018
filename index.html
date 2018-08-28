@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap-table.js"></script>
+      <script type="text/javascript" src="js/angular.min.js"></script>
+     
+     
+  
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    
+ 
+  
+  <script type="text/javascript" src="app1.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {
+      width: auto;
+      height: auto;
+      background-color : #f1f1f1;
+    }
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: white;
+      width: auto;
+      height: 100%;
+    }
+    
+    header {
+      background-color: #000080;
+      color: white;
+      width: 100%;
+      padding: 5px;
+      height: auto;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #000080;
+      color: white;
+      width: 100%;
+      padding: 5px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+  
+
+  <div ng-app="app">
+  <div ng-controller="homeCtrl">
+  	<input type="number" ng-model="custid">
+  <button ng-click="demo()" id="bt">Search</button>
+
+<header class="container-fluid">
+  <h4>Account Number : {{account_number}}</h4>
+  <h4>Net Balance : Rs. {{balance}}</h4>
+</header>
+
+<div class="container-fluid">
+  <div class="row content">
+    <!-- <div class="col-sm-3 sidenav">
+      <h4>John's Blog</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#section2">Friends</a></li>
+        <li><a href="#section3">Family</a></li>
+        <li><a href="#section3">Photos</a></li>
+      </ul><br>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search Blog..">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+
+      <font size = "3" color="green"><strong>Total Credit last month: Rs. {{credit}}</strong></font>
+    <p></p>
+    <font size= "3" color="red"><strong>Total Debit last month: Rs. {{debit}}</strong></font>
+    <p></p>
+    <div id="piechart"></div>
+    </div>
+ -->
+    <div class="col-sm-9">
+      <!-- <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      <h2>I Love Food</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
+      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
+      <p>Food is my passion. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br><br>
+      
+      <h4><small>RECENT POSTS</small></h4>
+      <hr>
+      <h2>Officially Blogging</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+      <h5><span class="label label-success">Lorem</span></h5><br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <hr>
+
+      <h4>Leave a Comment:</h4>
+      <form role="form">
+        <div class="form-group">
+          <textarea class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+      <br><br>
+      
+      <p><span class="badge">2</span> Comments:</p><br>
+      
+      <div class="row">
+        <div class="col-sm-2 text-center">
+          <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+          <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <br>
+        </div>
+        <div class="col-sm-2 text-center">
+          <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+        </div>
+        <div class="col-sm-10">
+          <h4>John Row <small>Sep 25, 2015, 8:25 PM</small></h4>
+          <p>I am so happy for you man! Finally. I am looking forward to read about your trendy life. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <br>
+          <p><span class="badge">1</span> Comment:</p><br>
+          <div class="row">
+            <div class="col-sm-2 text-center">
+              <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+            </div>
+            <div class="col-xs-10">
+              <h4>Nested Bro <small>Sep 25, 2015, 8:28 PM</small></h4>
+              <p>Me too! WOW!</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+       <p></p>
+    <font size="3" color="#000080" ><strong>Last 3 Transactions</strong></font>
+    <p></p>
+    
+    <div class="container-fluid">
+        <div class="table-condensed">
+          <table id="table">
+        <thead>
+            <tr>
+                <th data-field="Date">Transaction Date</th>
+                <th data-field="Transaction Id">Transaction Id</th>
+                <th data-field="Type">Type</th>
+                <th data-field="Amount">Amount</th>
+            </tr>
+        </thead>
+    </table>
+    <p></p>
+    <font size = "3" color="green"><strong>Total Credit last month: Rs. {{credit}}</strong></font>
+    <p></p>
+    <font size= "3" color="red"><strong>Total Debit last month: Rs. {{debit}}</strong></font>
+    <p></p>
+  </div>
+    </div>
+    <!-- <div class="container">
+    <div id="showData" class="table table-condensed"></div>
+  </div> -->
+
+
+ <!--  <div class="container">    
+  <table class="table table-condensed">
+    <thead>
+      <tr bgcolor="#000080">
+    <th><font color="white">Date</font></th>
+    <th><font color="white">Transaction Id</font></th>
+    <th><font color="white">Type</font></th>
+    <th><font color="white">Amount</font></th>
+  </tr>
+</thead>
+ <tr>
+    <td>{{t1_date}}</td>
+    <td>{{t1_id}}</td>
+    <td>{{t1_type}}</td>
+    <td>{{t1_amount}}</td>
+  </tr>
+  <tr>
+    <td>{{t2_date}}</td>
+    <td>{{t2_id}}</td>
+    <td>{{t2_type}}</td>
+    <td>{{t2_amount}}</td>
+  </tr>
+  <tr>
+    <td>{{t3_date}}</td>
+    <td>{{t3_id}}</td>
+    <td>{{t3_type}}</td>
+    <td>{{t3_amount}}</td>
+  </tr>
+    </tbody>
+  </table>
+</div>
+
+ -->
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid">
+</footer>
+</div>
+</div>
+</body>
+</html>
