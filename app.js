@@ -3,11 +3,11 @@ const app = express()
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-        host     : "retailbanking.cu1eaqjaoadd.us-east-2.rds.amazonaws.com",
-        user     : "pgupta1312",
-        password : "pgupta1312",
+        host     : "mydbinstance.cm4ggbovvhmk.us-east-2.rds.amazonaws.com",
+        user     : "ankurprasad711",
+        password : "ankur711",
         port     : "3306",
-        database : "Retail"
+        database : "mydatabase"
 });
 
 app.use(function(req, res, next) {
@@ -18,21 +18,16 @@ app.use(function(req, res, next) {
 app.use(express.static(__dirname + '/'));
 
 app.get('/', (req, res) => {
-        res.sendFile('C:/Users/Administrator/Downloads/RBS2018-master/RBS2018-master/index.html');
+        res.sendFile('index.html');
 })
-app.get('/1.png', (req, res) => {
-        res.sendFile('/home/ubuntu/node-server/1.PNG');
-})
-app.get('/2.png', (req, res) => {
-        res.sendFile('/home/ubuntu/node-server/2.PNG');
-})
+
 app.get('/page/', (req, res) => {
         var cin = parseInt(req.query.custid);
         console.log(cin);
         console.log("new");
     
         //res.send(custid);
-        var query = 'select * from account where CIN=' + cin;
+        var query = 'select * from assets where CIN=' + cin;
         console.log(query);
         
         connection.query(query, function (error, results, fields) {
@@ -56,7 +51,7 @@ app.get('/page/', (req, res) => {
     app.get('/p/', (req, res) => {
         var acc_no = parseInt(req.query.acc_no);
         console.log(acc_no);
-        var q="select transaction_id,type,amount,date from transactions where account_number="+acc_no;
+        var q="select transaction_id,type,amount from accounts where CIN="+acc_no;
      console.log(q);
          connection.query(q, function (error, results, fields) {
                 if (error) {

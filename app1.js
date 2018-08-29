@@ -21,7 +21,7 @@ app.controller('homeCtrl', function($scope,$http) {
                            $scope.credit = result["0"].total_credit;
                            $scope.debit = result["0"].total_debit;
                             console.log(result["0"].account_number);
-                             accno=result["0"].account_number;
+                             accno=$scope.custid;
                         fn1(accno);
                             
             }); 
@@ -58,20 +58,12 @@ app.controller('homeCtrl', function($scope,$http) {
                                         }, {
                                             field: 'price',
                                             title: 'type'
-                                        }, {
-                                            field: 'pr',
-                                            title: 'amount'
                                         }],
                                         data: [{
                                             id: result[0].transaction_id,
                                             name: result[0].amount,
                                             price: result[0].type,
-                                            pr: amount
-                                        }, {
-                                            id: result[1].transaction_id,
-                                            name: result[1].amount,
-                                            price: result[1].type,
-                                            pr=amount
+                                            
                                         }]
                                   });
                               });
